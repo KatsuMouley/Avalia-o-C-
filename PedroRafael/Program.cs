@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using PedroRafael.Models;
+using PedroRafael.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
