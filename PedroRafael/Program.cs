@@ -32,7 +32,7 @@ app.MapPost("/api/funcionario/cadastrar", ([FromBody] FuncionarioCDTO funcionari
         return Results.BadRequest("Esta pessoa já existe");
     }
     Funcionario funcionario = new Funcionario(funcionarioCDTO.Nome,funcionarioCDTO.Cpf);
-    funcionario.FuncionarioId = Funcionarios.funcionarios.OrderByDescending(x => x.FuncionarioId).FirstOrDefault().FuncionarioId + 1;
+    funcionario.FuncionarioId = Funcionarios.funcionarios.OrderByDescending(u => u.FuncionarioId).FirstOrDefault().FuncionarioId + 1;
     Funcionarios.funcionarios.Add(funcionario);
 
     return Results.Ok("Funcionario Cadastrado");
