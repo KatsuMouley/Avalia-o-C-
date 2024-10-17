@@ -16,25 +16,36 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.MapPost("/api/funcionario/cadastrar", ([FromBody]PessoaCDTO pessoa_C_DTO)=>{
+    if (String.IsNullOrEmpty(pessoa_C_DTO.Name))
+    //Uma opção para realizar DTOs mais rapidamente de maneira mais facilmente legivel seriam automappers. estarei pulando esta parte devido a falta de internet para instalação das ferramentas necessárias
+    //nesta parte eu tbm pulei validadores devido ao uso de uma ferramenta online Nuget, como no momento estou sem acesso
+    //O exemplo do endpoint assincrono funcionaria melhor caso eu presenciasse o uso das ferramentas mencionada acima, porém como foram etapas q eu pulei, nesta etapa não estaremos utilizando tanto async
+    //sempre tratar as coisas com excessão
+    {
+        return Results.BadRequest("Invalid Id or pessoas Name");
+    }
+    if (Pessoas.pessoas.FirstOrDefault(u => u.Name.ToLower() == pessoa_C_DTO.Name.ToLower()) != null)
+    {
+        return Results.BadRequest("Esta pessoa já existe");
+    }
+    Person pessoa = new(){
+        Name = pessoa_C_DTO.Name,
+        born = pessoa_C_DTO.born
+    };
+    pessoa.Id= Pessoas.pessoas.OrderByDescending(u=>u.Id).FirstOrDefault().Id + 1;
+    Pessoas.pessoas.Add(pessoa);
+    
+    PessoaDTO pessoaDTO = new(){
+        Id = pessoa.Id,
+        Name = pessoa.Name,
+        born = pessoa.born
+    };
+    //Retorna um getid da pessoa
+    return Results.CreatedAtRoute("GetPessoa", new {Id=pessoa.Id},pessoa);
+    // return Results.Created($"/Api/pessoas/{pessoa.Id}",pessoa);
+});
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
 
 app.Run();
 
