@@ -49,6 +49,20 @@ app.MapGet("/api/funcionario/listar", () =>
 app.MapPost("api/folha/cadastrar",([FromBody] FolhaCDTO folhaCDTO) =>
 {
     Folha folha = new Folha(folhaCDTO.valor, folhaCDTO.quantidade, folhaCDTO.mes, folhaCDTO.ano, folhaCDTO.funcionarioId);
+    folha.salarioBruto = folha.quantidade * 20;
+    folha.impostoFgts = folha.salarioBruto*8/100;
+    if (folha.salarioBruto <= 1903.99) folha.impostoIrrf = 0;
+    else if (1903.99 <= folha.salarioBruto || folha.salarioBruto <= 2826.65) folha.impostoIrrf = folha.salarioBruto*7.5/100;
+    else if (2826.65 <= folha.salarioBruto || folha.salarioBruto  <= 3751.05) folha.impostoIrrf = folha.salarioBruto*15/100;
+    else if (3751.05 <= folha.salarioBruto || folha.salarioBruto  <= 4664.68) folha.impostoIrrf = folha.salarioBruto*22.5/100;
+    else if (3751.05 <= folha.salarioBruto || folha.salarioBruto  <= 4664.68) folha.impostoIrrf = folha.salarioBruto*22.5/100;
+    else folha.impostoIrrf = folha.salarioBruto*27.5/100;
+    
+    if (folha.salarioBruto <= 1693.72) folha.impostoInss = folha.salarioBruto*8/100;
+    else if (1693.72 <= folha.salarioBruto || folha.salarioBruto  <= 2822.90) folha.impostoInss = folha.salarioBruto*9/100;
+    else if (2822.90 <= folha.salarioBruto || folha.salarioBruto  <= 5645.80) folha.impostoInss = folha.salarioBruto*11/100;
+    else folha.impostoInss = 621.03;
+
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
     folha.folhaId = Folhas.folhas.OrderByDescending(u => u.folhaId).FirstOrDefault().folhaId + 1;
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
@@ -68,16 +82,6 @@ app.MapGet("api/folha/buscar/{cpf}/{mes}/{ano}", (int id) =>
 
 // salariobruto =  (quantidade * 20)
 // impostoFgts = (salariobruto*8)/100
-// if (salariobruto <= 1903.99) impostoIrrf = 0
-// else if (1903.99 <= salariobruto <= 2826.65) impostoIrrf = (salariobruto*7.5)/100
-// else if (2826.65 <= salariobruto <= 3751.05) impostoIrrf = (salariobruto*15)/100
-// else if (3751.05 <= salariobruto <= 4664.68) impostoIrrf = (salariobruto*22.5)/100
-// else if (3751.05 <= salariobruto <= 4664.68) impostoIrrf = (salariobruto*22.5)/100
-// else impostoIrrf = (salariobruto*27.5)/100
 
-// if (salariobruto <= 1693.72) impostoInss = (salariobruto*8)/100
-// else if (1693.72 <= salariobruto <= 2822.90) impostoInss = (salariobruto*9)/100
-// else if (2822.90 <= salariobruto <= 5645.80) impostoInss = (salariobruto*11)/100
-// else impostoInss = (salariobruto*27.5)/100
 
 app.Run();
