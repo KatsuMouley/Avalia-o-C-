@@ -55,12 +55,16 @@ app.MapGet("api/folha/buscar/{cpf}/{mes}/{ano}", (int id)=>{
 
 // salariobruto =  (quantidade * 20)
 // impostoFgts = (salariobruto*8)/100
-// if (salariobruto <= 1903.99) imposto = 0
+// if (salariobruto <= 1903.99) impostoIrrf = 0
 // else if (1903.99 <= salariobruto <= 2826.65) impostoIrrf = (salariobruto*7.5)/100
 // else if (2826.65 <= salariobruto <= 3751.05) impostoIrrf = (salariobruto*15)/100
 // else if (3751.05 <= salariobruto <= 4664.68) impostoIrrf = (salariobruto*22.5)/100
 // else if (3751.05 <= salariobruto <= 4664.68) impostoIrrf = (salariobruto*22.5)/100
 // else impostoIrrf = (salariobruto*27.5)/100
 
+// if (salariobruto <= 1693.72) impostoInss = (salariobruto*8)/100
+// else if (1693.72 <= salariobruto <= 2822.90) impostoInss = (salariobruto*9)/100
+// else if (2822.90 <= salariobruto <= 5645.80) impostoInss = (salariobruto*11)/100
+// else impostoInss = (salariobruto*27.5)/100
 
 app.Run();
