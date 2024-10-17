@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\PedroRafael\\PedroRafael.csproj": {}
+    "C:\\Users\\meow\\Desktop\\Trabalho\\Avalia-o-C-\\PedroRafael\\PedroRafael.csproj": {}
   },
   "projects": {
-    "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\PedroRafael\\PedroRafael.csproj": {
+    "C:\\Users\\meow\\Desktop\\Trabalho\\Avalia-o-C-\\PedroRafael\\PedroRafael.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\PedroRafael\\PedroRafael.csproj",
+        "projectUniqueName": "C:\\Users\\meow\\Desktop\\Trabalho\\Avalia-o-C-\\PedroRafael\\PedroRafael.csproj",
         "projectName": "PedroRafael",
-        "projectPath": "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\PedroRafael\\PedroRafael.csproj",
-        "packagesPath": "C:\\Users\\autologon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\PedroRafael\\obj\\",
+        "projectPath": "C:\\Users\\meow\\Desktop\\Trabalho\\Avalia-o-C-\\PedroRafael\\PedroRafael.csproj",
+        "packagesPath": "C:\\Users\\meow\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\meow\\Desktop\\Trabalho\\Avalia-o-C-\\PedroRafael\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\autologon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\meow\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,6 +48,8 @@
               "version": "[8.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.10, )"
             },
@@ -86,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
