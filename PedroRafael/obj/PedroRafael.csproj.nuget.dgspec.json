@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\prova\\prova.csproj": {}
+    "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\PedroRafael\\PedroRafael.csproj": {}
   },
   "projects": {
-    "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\prova\\prova.csproj": {
+    "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\PedroRafael\\PedroRafael.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\prova\\prova.csproj",
-        "projectName": "prova",
-        "projectPath": "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\prova\\prova.csproj",
+        "projectUniqueName": "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\PedroRafael\\PedroRafael.csproj",
+        "projectName": "PedroRafael",
+        "projectPath": "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\PedroRafael\\PedroRafael.csproj",
         "packagesPath": "C:\\Users\\autologon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\prova\\obj\\",
+        "outputPath": "C:\\Users\\autologon\\Desktop\\trabalho\\Avalia-o-C-\\PedroRafael\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
