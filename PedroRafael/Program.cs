@@ -19,5 +19,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.MapGet("/api/funcionario/listar", ()=>{
+    return Results.Ok(Funcionarios.funcionarios);
+});
+
 
 app.Run();
