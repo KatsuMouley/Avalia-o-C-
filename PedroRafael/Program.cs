@@ -3,6 +3,7 @@ using PedroRafael.Models;
 using PedroRafael.Models.DTO;
 using PedroRafael.Data;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.InteropServices;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,7 +22,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapPost("/api/funcionario/cadastrar", ([FromBody] FuncionarioCDTO funcionarioCDTO) =>
+app.MapPost("/api/funcionario/cadastrar", ([FromBody] FuncionarioCDTO funcionarioCDTO,[FromServices] AppDbContext ctx) =>
 {
     if (String.IsNullOrEmpty(funcionarioCDTO.Nome))
     {
@@ -36,7 +37,6 @@ app.MapPost("/api/funcionario/cadastrar", ([FromBody] FuncionarioCDTO funcionari
     funcionario.FuncionarioId = Funcionarios.funcionarios.OrderByDescending(u => u.FuncionarioId).FirstOrDefault().FuncionarioId + 1;
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
     Funcionarios.funcionarios.Add(funcionario);
-
     return Results.Ok("Funcionario Cadastrado");
 
 });
